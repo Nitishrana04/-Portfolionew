@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Georgia", serif;
+  background: #fff;
+  color: #000;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+/* Navbar Styling */
+nav {
+  display: flex;
+  justify-content: space-between; /* Left align and space between */
+  align-items: center;
+  padding: 20px 0;
+}
+
+nav .logo {
+  font-size: 26px;
+  font-weight: bold;
+  color: #081c15;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #0a3c2e;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 60px;
+  padding: 50px 0;
+}
+
+.text {
+  max-width: 50%;
+}
+
+/* Gradient Text Effect */
+.text h1 {
+  font-size: 60px;
+  background: linear-gradient(90deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ff92, #007bff, #6f00ff);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientAnimation 6s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Hover Effect on Paragraph */
+.text p {
+  font-size: 22px;
+  color: #444;
+  transition: color 0.4s ease-in-out;
+}
+
+.text p:hover {
+  color: #ff5733;
+}
+
+.image img {
+  width: 350px;
+  border-radius: 50%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul {
+    margin-top: 10px;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .text {
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .image {
+    position: relative;
+    display: inline-block;
+    border-radius: 20px;
+    padding: 10px;
+    overflow: hidden;
+  }
+  
+  .image::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ff92, #007bff, #6f00ff);
+    background-size: 400% 400%;
+    z-index: -1;
+    animation: movingBackground 6s linear infinite;
+  }
+  
+  @keyframes movingBackground {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.1); }
+    100% { transform: rotate(360deg) scale(1); }
+  }
+  
+  .image img {
+    display: block;
+    width: 300px;
+    border-radius: 20px;
+    position: relative;
+    z-index: 1;
+  }
+}
